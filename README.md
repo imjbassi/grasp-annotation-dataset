@@ -15,6 +15,17 @@ raw robot video  ──►  frames  ──►  Labelbox project + ontology  ─�
    (download)         (extract)        (create + upload)              (annotate)         (export)
 ```
 
+## Demo
+
+A 15-second walkthrough — the raw robot-arm clip, the three annotation types
+overlaid (`grasp_event` box, `object_contact` keypoint, `failure_mode` label),
+and the matching COCO JSON. Rendered from the same geometry the exporter uses;
+regenerate it with `make video`.
+
+![pipeline walkthrough](assets/demo_walkthrough.gif)
+
+▶️ Higher-quality H.264 version: [`assets/demo_walkthrough.mp4`](assets/demo_walkthrough.mp4)
+
 ---
 
 ## What the annotations capture
