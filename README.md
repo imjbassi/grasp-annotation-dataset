@@ -118,6 +118,14 @@ bash scripts/download_dataset.sh jaco        # -> data/raw/jaco_play/
 python scripts/make_demo_clip.py             # -> data/raw/demo_clip/
 ```
 
+**Want to see it end-to-end without an account?** Render an MP4 walkthrough
+that shows the raw clip, all three annotation types overlaid, and the matching
+COCO JSON — generated from the same geometry the real exporter uses:
+
+```bash
+make video                                   # -> data/exports/demo_walkthrough.mp4
+```
+
 ---
 
 ## Setup

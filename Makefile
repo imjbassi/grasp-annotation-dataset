@@ -1,4 +1,4 @@
-.PHONY: help install download frames project upload export test demo clean
+.PHONY: help install download frames project upload export test demo video clean
 
 help:
 	@echo "Robot grasp annotation — data-ops pipeline"
@@ -10,6 +10,7 @@ help:
 	@echo "  make upload     Upload data/frames to Labelbox and batch them"
 	@echo "  make export     Export completed labels to COCO JSON"
 	@echo "  make demo       Generate a tiny synthetic clip (no download needed)"
+	@echo "  make video      Render an MP4 walkthrough of the pipeline"
 	@echo "  make test       Run offline unit tests"
 	@echo "  make clean      Remove generated data artifacts"
 
@@ -33,6 +34,9 @@ export:
 
 demo:
 	python scripts/make_demo_clip.py
+
+video:
+	python scripts/make_demo_video.py
 
 test:
 	PYTHONPATH=src pytest -q
