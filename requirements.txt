@@ -1,0 +1,13 @@
+# Core pipeline dependencies.
+labelbox>=6.0,<7          # Labelbox Python SDK (project, upload, export)
+opencv-python-headless>=4.8   # video -> frame extraction
+python-dotenv>=1.0       # load LABELBOX_API_KEY from a local .env
+requests>=2.31           # used by the SDK for uploads
+
+# Dev / test (kept light).
+pytest>=7.4
+
+# Optional: only needed to read Open X-Embodiment (jaco_play) RLDS shards.
+# Uncomment if you download with `./scripts/download_dataset.sh jaco`.
+# tensorflow-datasets>=4.9
+# tensorflow>=2.13
