@@ -15,16 +15,19 @@ raw robot video  ──►  frames  ──►  Labelbox project + ontology  ─�
    (download)         (extract)        (create + upload)              (annotate)         (export)
 ```
 
-## Demo
+## Demo — grasp simulation
 
-A 15-second walkthrough — the raw robot-arm clip, the three annotation types
-overlaid (`grasp_event` box, `object_contact` keypoint, `failure_mode` label),
-and the matching COCO JSON. Rendered from the same geometry the exporter uses;
-regenerate it with `make video`.
+A 9-second kinematic simulation of a planar two-link manipulator executing a
+top-down parallel-jaw grasp (approach → pre-shape → contact → lift), with the
+project's three annotation types overlaid the moment they become defined:
+the `grasp_event` box, the `object_contact` keypoint, and the `failure_mode`
+label. The side panels trace gripper aperture and end-effector height in real
+time, and the overlay geometry is written out as a matching COCO record.
+Regenerate it with `make video`.
 
-![pipeline walkthrough](assets/demo_walkthrough.gif)
+![grasp simulation](assets/grasp_sim.gif)
 
-▶️ Higher-quality H.264 version: [`assets/demo_walkthrough.mp4`](assets/demo_walkthrough.mp4)
+▶️ Higher-quality H.264 version: [`assets/grasp_sim.mp4`](assets/grasp_sim.mp4)
 
 ---
 
@@ -85,7 +88,8 @@ grasp-annotation-dataset/
 ├── scripts/
 │   ├── download_dataset.sh      # 1. fetch free robot-arm video
 │   ├── extract_frames.py        # 2. video/sequence -> frames
-│   └── make_demo_clip.py        # optional: synthetic clip, no download
+│   ├── make_demo_clip.py        # optional: synthetic clip, no download
+│   └── render_grasp_sim.py      # optional: grasp simulation demo clip
 ├── src/grasp_annot/
 │   ├── config.py                # env-driven settings + paths
 │   ├── ontology.py              # the annotation schema (single source of truth)
@@ -129,12 +133,13 @@ bash scripts/download_dataset.sh jaco        # -> data/raw/jaco_play/
 python scripts/make_demo_clip.py             # -> data/raw/demo_clip/
 ```
 
-**Want to see it end-to-end without an account?** Render an MP4 walkthrough
-that shows the raw clip, all three annotation types overlaid, and the matching
-COCO JSON — generated from the same geometry the real exporter uses:
+**Want to see the schema without an account?** Render the grasp-simulation
+clip — a simulated two-link arm grasps and lifts a block while all three
+annotation types are overlaid, and a matching COCO record is written from the
+same geometry:
 
 ```bash
-make video                                   # -> data/exports/demo_walkthrough.mp4
+make video           # -> assets/grasp_sim.{mp4,gif} + data/exports/sim_grasp_coco.json
 ```
 
 ---

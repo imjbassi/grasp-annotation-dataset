@@ -7,6 +7,12 @@ requests>=2.31           # used by the SDK for uploads
 # Dev / test (kept light).
 pytest>=7.4
 
+# Demo clip rendering (`make video` only — not needed for the pipeline).
+matplotlib>=3.8
+imageio>=2.31
+imageio-ffmpeg>=0.4.9    # bundled ffmpeg for H.264 encoding
+pillow>=10.0
+
 # Optional: only needed to read Open X-Embodiment (jaco_play) RLDS shards.
 # Uncomment if you download with `./scripts/download_dataset.sh jaco`.
 # tensorflow-datasets>=4.9
